@@ -10,16 +10,18 @@ const connect = function () {
     console.log(`Successfully connected to game server`);
   });
 
-  conn.on('connect', () => {
-    conn.write(`Name: TGO`);
-  })
+
+  // conn.on('connect', () => { conn.write(`Move: up`); });
+
+  // conn.on('connect', () => { setTimeout(() => { conn.write(`Move: up`)}, 50)});
+
+  conn.on('connect', () => { conn.write( `Name: TGO` )});
 
 
   conn.setEncoding("utf8");
 
   return conn;
-};
+}
 
 connect();
 
-module.exports = connect;
