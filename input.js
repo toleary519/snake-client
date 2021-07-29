@@ -27,6 +27,10 @@ const handleUserInput = function () {
       connection.write('Move: right');
     } else if (key === 'a') {
       connection.write('Move: left');
+    } else if (key === 'h') {
+      connection.write('Say: LOOK AT THE SNAKE!');
+    } else if (key === 'l') {
+      connection.write('Say: SNAKE EYES!');
     }
   }
 )};
