@@ -1,4 +1,4 @@
-const net = require("net");
+const net = require('net');
 
 const connect = function () {
   const conn = net.createConnection({
@@ -10,18 +10,19 @@ const connect = function () {
     console.log(`Successfully connected to game server`);
   });
 
-
+  conn.on('connect', () => { conn.write( `Name: TGO` )});
+  
+  conn.on("error", (err) => {
+    console.log(err);
+  })
   // conn.on('connect', () => { conn.write(`Move: up`); });
 
   // conn.on('connect', () => { setTimeout(() => { conn.write(`Move: up`)}, 50)});
-
-  conn.on('connect', () => { conn.write( `Name: TGO` )});
-
 
   conn.setEncoding("utf8");
 
   return conn;
 }
 
-connect();
+module.exports = {connect};
 
